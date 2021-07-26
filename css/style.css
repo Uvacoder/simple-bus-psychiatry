@@ -135,6 +135,11 @@ body {
 /* GENERAL */
 .section {
   padding: 9rem 0;
+
+  /* IMPORTANT-AF: for combination use with JS smooth-scroll */
+  scroll-margin-top: 5rem;
+  /* safari = snap */
+  scroll-snap-margin-top: 5rem;
 }
 a {
   padding: 5px;
@@ -205,6 +210,11 @@ h2 {
 }
 
 @media only screen and (max-width: 54em) {
+  .section {
+    scroll-margin-top: 3rem;
+    /* safari = snap */
+    scroll-snap-margin-top: 3rem;
+  }
   h1 {
     font-size: 3rem;
   }
@@ -623,6 +633,7 @@ h2 {
 }
 
 /* LINKS & BUTTON */
+.link,
 .link:link,
 .link:visited {
   text-decoration: none;

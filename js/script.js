@@ -2,46 +2,43 @@
 
 // ELEMENTS
 const nav = document.querySelector('nav');
-const navLinks = document.querySelector('.nav__links');
+const allNavLinks = document.querySelector('.nav__links');
 
 const navIcons = document.querySelectorAll('.nav-icon');
 const iconMenu = document.querySelector('.menu-icon');
 const iconClose = document.querySelector('.close-icon');
 
 const navHeight = nav.getBoundingClientRect().height;
-const navLink = document.querySelectorAll('.nav__link');
+const navLinks = document.querySelectorAll('.nav__link');
 const allSections = document.querySelectorAll('.section');
 
 const priceNodeList = document.querySelectorAll('.price--js');
 const widthBelow480px = window.matchMedia('(max-width: 30em)');
 
 ///////////////////////////////////////
-// Page Navigation (handle click on nav link)
+// Page Navigation - Scroll to Section on Click
 const smoothScroll = function (ev) {
   ev.preventDefault();
-
-  // TODO: add an offset
 
   if (ev.target.classList.contains('nav__link')) {
     const id = ev.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
     // close menu, if user is on mobile nav version
-    if (navLinks.classList.contains('nav__links--visible')) toggleMenu();
+    if (allNavLinks.classList.contains('nav__links--visible')) toggleMenu();
 
     // remove focus state
     ev.target.blur();
   }
 };
-
-navLinks.addEventListener('click', smoothScroll);
+allNavLinks.addEventListener('click', smoothScroll);
 
 ///////////////////////////////////////
 //  Clicks on Mobile Nav Icon
 const toggleMenu = function () {
   iconMenu.classList.toggle('hidden');
   iconClose.classList.toggle('hidden');
-  navLinks.classList.toggle('nav__links--visible');
+  allNavLinks.classList.toggle('nav__links--visible');
 };
 
 iconMenu.addEventListener('click', toggleMenu);
@@ -67,31 +64,34 @@ nav.addEventListener('mouseover', handleHover.bind('#1e1854'));
 nav.addEventListener('mouseout', handleHover.bind('#f9fbff'));
 
 ///////////////////////////////////////
-// Navigation - Sense Scrolling to Section
-const sectionNav = function (entries) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) return;
+// Section Observer - Navigation - Toggle Active Class
+const toggleActive = function (entries) {
+  console.table(entries);
+  const entry = entries.find(oneEntry => oneEntry.isIntersecting);
+
+  // if 'find' returns undefined:
+  if (!entry) return;
+  console.log(entry);
 
   const sectionID = '#' + entry.target.id;
   let foundID;
-  let siblings = [];
-  for (const link of navLink) {
+  // last thing i did -> changed loop body:
+  for (const link of navLinks) {
     if (link.getAttribute('href') === sectionID) foundID = link;
-    if (link.getAttribute('href') !== sectionID) siblings.push(link);
   }
 
+  navLinks.forEach(link => link.classList.remove('nav__link--active'));
   foundID.classList.add('nav__link--active');
-  siblings.forEach(el => el.classList.remove('nav__link--active'));
 };
 
-const sectionObserver = new IntersectionObserver(sectionNav, {
+const sectionObserver = new IntersectionObserver(toggleActive, {
   root: null,
-  rootMargin: `-${navHeight}px`,
-  threshold: 0.3,
+  // rootMargin: `-${navHeight}px`,
+  threshold: 0.4,
 });
-allSections.forEach(function (section) {
-  sectionObserver.observe(section);
-});
+allSections.forEach(section => sectionObserver.observe(section));
+// TODO: have this observer only target the last 3 sections. separate observer for "home" -> w/ high AF threshold
+// remove ALL active classes -> navLinks.forEach(link => link.classList.remove('nav__link--active')); ... then add to either home, or the foundID (dependent on which observer callback you're in)
 
 ///////////////////////////////////////
 // Toggle Dots (in FAQ Answer) @ width 480px
