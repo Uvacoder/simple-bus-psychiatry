@@ -15,11 +15,15 @@ BREAKPOINTS
   --color--dark-blue: #1c4083;
   --color--background-dark: #e7eefd;
   --color-link: #d1e0ff;
+  --color-secondary: #db6a0d;
+  --color-secondary-dark: #c35c08;
 
-  --color-error: #db870d;
+  --color-error: #db360d;
+  /* #c85e07          original -> #db870d; */
   --color-success: #26bc5b;
   --color-focus-light: #4a83ed;
   --color-focus: #356acb;
+  --color-focus-orange: #db870d;
 }
 
 * {
@@ -126,7 +130,7 @@ body {
 .nav-icon:focus-visible,
 .nav__link:focus-visible,
 .nav__logo:focus-visible {
-  outline: 4px dashed var(--color-error);
+  outline: 4px dashed var(--color-focus-orange);
   box-shadow: none;
   background-color: transparent;
 }
@@ -342,7 +346,8 @@ h2 {
 }
 
 .flex__block,
-.form-container {
+.form-container,
+.contact__btn-group {
   display: flex;
   justify-content: center;
 }
@@ -534,14 +539,18 @@ h2 {
   background-color: var(--color--background-dark);
   border-radius: 3px;
   width: 50rem;
-  height: 58rem;
-  margin-top: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.contact-form {
+  height: 60rem;
+}
+.consult-form {
+  height: 67rem;
 }
 
 .form__group {
@@ -579,17 +588,18 @@ h2 {
 }
 .form__textarea {
   height: 100px;
+  margin-bottom: 2.5rem;
 }
 
 .form__input:focus,
 .form__textarea:focus {
   outline: none;
-  border-bottom: 2px solid var(--color-success);
+  border-bottom: 2px solid var(--color-focus);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
 .form__input:focus:invalid,
 .form__textarea:focus:invalid {
-  border-bottom: 2px solid var(--color-error);
+  border-bottom: 2px solid var(--color-focus-orange);
 }
 .form__input:focus-visible,
 .form__textarea:focus-visible {
@@ -598,7 +608,7 @@ h2 {
 }
 .form__input:focus-visible:invalid,
 .form__textarea:focus-visible:invalid {
-  outline: 4px dashed var(--color-error);
+  outline: 4px dashed var(--color-focus-orange);
   border-bottom: none;
 }
 
@@ -623,9 +633,9 @@ h2 {
   border-radius: 50%;
 }
 .form__radio-input:focus-visible {
-  outline: 3px dashed var(--color-error);
+  outline: 3px dashed var(--color-focus-orange);
   border: transparent;
-  box-shadow: 0 0 9px var(--color-error);
+  box-shadow: 0 0 9px var(--color-focus-orange);
 }
 
 .form__radio-input:checked {
@@ -655,28 +665,37 @@ h2 {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .link:focus-visible {
-  outline: 4px dashed var(--color-error);
+  outline: 4px dashed var(--color-focus-orange);
   box-shadow: none;
   background-color: transparent;
 }
 
-.btn {
-  border: none;
+.btn,
+.btn:link,
+.btn:visited,
+.btn-toggle-form,
+.btn-toggle-form:link,
+.btn-toggle-form:visited {
   outline: none;
   font-family: 'Manrope', sans-serif;
   font-size: 2rem;
   font-weight: 300;
-  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  border: none;
   color: var(--color--white);
-  background-color: var(--color--dark-blue);
+  background-color: var(--color-secondary);
   border-radius: 3px;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-  padding: 5px 15px;
-  transition: all 0.2s;
+  padding: 8px 23px;
 }
 .btn:hover,
 .btn:active {
-  background-color: var(--color--black);
+  background-color: var(--color-secondary-dark);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -686,9 +705,32 @@ h2 {
   border-radius: 0;
 }
 .btn:focus-visible {
-  outline: 4px dashed var(--color-error);
+  outline: 4px dashed var(--color-focus-orange);
   border: 3px solid var(--color--background-dark);
   box-shadow: none;
+}
+.contact__btn-group {
+  margin-top: 3rem;
+}
+/* TODO: center the active form's button... use translate to move the other to the center when it's clicked. also ghost button is a tiny bit smaller */
+.btn-toggle-form,
+.btn-toggle-form:link,
+.btn-toggle-form:visited {
+  z-index: 10;
+  padding: 8px 23px;
+  border: 3px solid var(--color--white);
+}
+.contact__active-btn,
+.contact__active-btn:link,
+.contact__active-btn:visited {
+  color: var(--color--black);
+  background-color: rgba(249, 251, 255, 0.93);
+}
+.contact__ghost-btn,
+.contact__ghost-btn:link,
+.contact__ghost-btn:visited {
+  color: var(--color--white);
+  background-color: transparent;
 }
 
 /* ---------------- */
@@ -719,7 +761,7 @@ footer {
   box-shadow: 0 2px 9px var(--color-focus-light);
 }
 .icon-group a:focus-visible {
-  outline: 4px dashed var(--color-error);
+  outline: 4px dashed var(--color-focus-orange);
   box-shadow: none;
 }
 .icon {

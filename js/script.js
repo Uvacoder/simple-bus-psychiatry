@@ -66,19 +66,18 @@ nav.addEventListener('mouseout', handleHover.bind('#f9fbff'));
 ///////////////////////////////////////
 // Section Observer - Navigation - Toggle Active Class
 const toggleActive = function (entries) {
-  console.table(entries);
+  // console.table(entries);
   const entry = entries.find(oneEntry => oneEntry.isIntersecting);
 
   // if 'find' returns undefined:
   if (!entry) return;
-  console.log(entry);
 
   const sectionID = '#' + entry.target.id;
   let foundID;
-  // last thing i did -> changed loop body:
-  for (const link of navLinks) {
+  Array.from(navLinks, link => {
     if (link.getAttribute('href') === sectionID) foundID = link;
-  }
+  });
+  // console.log(foundID);
 
   navLinks.forEach(link => link.classList.remove('nav__link--active'));
   foundID.classList.add('nav__link--active');
@@ -86,16 +85,13 @@ const toggleActive = function (entries) {
 
 const sectionObserver = new IntersectionObserver(toggleActive, {
   root: null,
-  // rootMargin: `-${navHeight}px`,
-  threshold: 0.4,
+  threshold: 0.6,
 });
 allSections.forEach(section => sectionObserver.observe(section));
-// TODO: have this observer only target the last 3 sections. separate observer for "home" -> w/ high AF threshold
-// remove ALL active classes -> navLinks.forEach(link => link.classList.remove('nav__link--active')); ... then add to either home, or the foundID (dependent on which observer callback you're in)
 
 ///////////////////////////////////////
 // Toggle Dots (in FAQ Answer) @ width 480px
-const initialValues = ['$150', '$200', '$180', '$270'];
+const initialValues = ['$180', '$270', '$140', '$200'];
 function controlDotDisplay(width) {
   if (width.matches) {
     priceNodeList.forEach((price, i) => (price.innerHTML = initialValues[i]));
