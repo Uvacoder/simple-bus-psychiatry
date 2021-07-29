@@ -12,7 +12,7 @@ const navHeight = nav.getBoundingClientRect().height;
 const navLinks = document.querySelectorAll('.nav__link');
 const allSections = document.querySelectorAll('.section');
 
-const priceNodeList = document.querySelectorAll('.price--js');
+const priceNodeList = document.querySelectorAll('.price');
 const widthBelow865px = window.matchMedia('(max-width: 54em)');
 
 ///////////////////////////////////////
@@ -97,18 +97,26 @@ allSections.forEach(section => sectionObserver.observe(section));
 ///////////////////////////////////////
 // Toggle Dots (in FAQ Answer) @ width 864px
 const initialValues = ['$190', '$270', '$140', '$200'];
+const initialStrings = [
+  'Initial pharmacotherapy assessment',
+  'Initial psychotherapy &amp; pharmacotherapy assessment',
+  'Followup medication management',
+  'Subsequent psychotherapy sessions &amp; medication management',
+];
 function controlDotDisplay(width) {
   if (width.matches) {
     priceNodeList.forEach(
-      (price, i) => (price.innerHTML = `&nbsp; &mdash; ${initialValues[i]}`)
+      (price, i) =>
+        (price.innerHTML = `${initialStrings[i]}&nbsp; &mdash; ${initialValues[i]} <span class="js--price"></span>`)
     );
   } else {
     priceNodeList.forEach(
       (price, i) =>
-        (price.innerHTML = `. . . . . . . . . &nbsp; ${initialValues[i]}`)
+        (price.innerHTML = `${initialStrings[i]}&nbsp; <span class="js--price">. . . . . . . &nbsp${initialValues[i]}</span>`)
     );
   }
 }
+
 controlDotDisplay(widthBelow865px);
 
 widthBelow865px.addEventListener('change', controlDotDisplay);
