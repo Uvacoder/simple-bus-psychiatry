@@ -13,7 +13,7 @@ const navLinks = document.querySelectorAll('.nav__link');
 const allSections = document.querySelectorAll('.section');
 
 const priceNodeList = document.querySelectorAll('.price--js');
-const widthBelow480px = window.matchMedia('(max-width: 30em)');
+const widthBelow865px = window.matchMedia('(max-width: 54em)');
 
 ///////////////////////////////////////
 // Page Navigation - Scroll to Section on Click
@@ -32,6 +32,11 @@ const smoothScroll = function (ev) {
   }
 };
 allNavLinks.addEventListener('click', smoothScroll);
+
+///////////////////////////////////////
+// Scroll to Top on Logo Click
+
+// TODO:
 
 ///////////////////////////////////////
 //  Clicks on Mobile Nav Icon
@@ -90,11 +95,13 @@ const sectionObserver = new IntersectionObserver(toggleActive, {
 allSections.forEach(section => sectionObserver.observe(section));
 
 ///////////////////////////////////////
-// Toggle Dots (in FAQ Answer) @ width 480px
-const initialValues = ['$180', '$270', '$140', '$200'];
+// Toggle Dots (in FAQ Answer) @ width 864px
+const initialValues = ['$190', '$270', '$140', '$200'];
 function controlDotDisplay(width) {
   if (width.matches) {
-    priceNodeList.forEach((price, i) => (price.innerHTML = initialValues[i]));
+    priceNodeList.forEach(
+      (price, i) => (price.innerHTML = `&nbsp; &mdash; ${initialValues[i]}`)
+    );
   } else {
     priceNodeList.forEach(
       (price, i) =>
@@ -102,9 +109,10 @@ function controlDotDisplay(width) {
     );
   }
 }
-controlDotDisplay(widthBelow480px);
+controlDotDisplay(widthBelow865px);
 
-widthBelow480px.addEventListener('change', controlDotDisplay);
+widthBelow865px.addEventListener('change', controlDotDisplay);
+// TODO: refactor to dynamically create the span element
 
 ///////////////////////////////////////
 // Footer Date (Year)
