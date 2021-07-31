@@ -215,6 +215,9 @@ body {
 a {
   padding: 5px;
 }
+::selection {
+  background-color: rgba(219, 106, 13, 0.2);
+}
 
 /* TYPOGRAPHY */
 h1,
@@ -263,7 +266,7 @@ h2 {
 }
 
 .phil-cred {
-  align-self: flex-end;
+  text-align: right;
 }
 
 /* REUSABLE + utility classes */
@@ -360,6 +363,10 @@ h2 {
   .section-home p,
   .section-contact p {
     width: unset;
+  }
+  .phil-cred {
+    align-self: flex-end;
+    margin-right: 2rem;
   }
 }
 

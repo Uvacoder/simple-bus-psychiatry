@@ -202,15 +202,21 @@
         <p>Required fields are marked with an asterisk.</p>
       </div>
       <div class="form-container">
-        <div class="contact__btn-group">
-          <button class="btn-toggle-form contact__active-btn">
+        <div class="contact__btn-group js--btn-group">
+          <button
+            class="btn-toggle-form contact__active-btn js--consult-btn"
+            data-btn="1"
+          >
             Schedule Consultation
           </button>
-          <button class="btn-toggle-form contact__ghost-btn">
+          <button
+            class="btn-toggle-form contact__ghost-btn js--contact-btn"
+            data-btn="2"
+          >
             Contact Form
           </button>
         </div>
-        <form action="#" class="form consult-form">
+        <form action="#" class="form consult-form js--form-1">
           <div class="form__group">
             <label class="form__label" for="nameSC">Name *</label>
             <input
@@ -267,13 +273,14 @@
               class="form__textarea"
               name="message"
               id="messageSC"
+              placeholder="forms aren't functional yet"
             ></textarea>
           </div>
           <button type="submit" class="btn">Request Consultation</button>
         </form>
 
         <!-- <form action="#" class="form"> -->
-        <form action="#" class="form contact-form hidden">
+        <form action="#" class="form contact-form hidden js--form-2">
           <div class="form__group">
             <label class="form__label" for="name">Name *</label>
             <input

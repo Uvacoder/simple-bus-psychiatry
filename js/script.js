@@ -4,6 +4,12 @@
 const nav = document.querySelector('nav');
 const allNavLinks = document.querySelector('.nav__links');
 
+const headerLogo = document.querySelector('.nav__logo');
+const footerLogo = document.querySelector('.footer__logo');
+const topSection = document.querySelector('.section-home');
+const ctaBtn = document.querySelector('.cta-btn');
+const sectionContact = document.querySelector('.section-contact');
+
 const navIcons = document.querySelectorAll('.nav-icon');
 const iconMenu = document.querySelector('.menu-icon');
 const iconClose = document.querySelector('.close-icon');
@@ -35,8 +41,22 @@ allNavLinks.addEventListener('click', smoothScroll);
 
 ///////////////////////////////////////
 // Scroll to Top on Logo Click
+const scrollToTop = function (ev) {
+  ev.preventDefault();
+  topSection.scrollIntoView({ behavior: 'smooth' });
+  ev.target.closest('a').blur();
+};
+headerLogo.addEventListener('click', scrollToTop);
+footerLogo.addEventListener('click', scrollToTop);
 
-// TODO:
+///////////////////////////////////////
+// Scroll to Contact Section on CTA Btn Click
+const scrollToContact = function (ev) {
+  ev.preventDefault();
+  sectionContact.scrollIntoView({ behavior: 'smooth' });
+  ev.target.blur();
+};
+ctaBtn.addEventListener('click', scrollToContact);
 
 ///////////////////////////////////////
 //  Clicks on Mobile Nav Icon
@@ -64,7 +84,6 @@ const handleHover = function (ev) {
     });
   }
 };
-
 nav.addEventListener('mouseover', handleHover.bind('#1e1854'));
 nav.addEventListener('mouseout', handleHover.bind('#f9fbff'));
 
@@ -90,7 +109,7 @@ const toggleActive = function (entries) {
 
 const sectionObserver = new IntersectionObserver(toggleActive, {
   root: null,
-  threshold: 0.6,
+  threshold: 0.35,
 });
 allSections.forEach(section => sectionObserver.observe(section));
 
@@ -103,6 +122,7 @@ const initialStrings = [
   'Followup medication management',
   'Subsequent psychotherapy sessions &amp; medication management',
 ];
+
 function controlDotDisplay(width) {
   if (width.matches) {
     priceNodeList.forEach(
@@ -118,9 +138,22 @@ function controlDotDisplay(width) {
 }
 
 controlDotDisplay(widthBelow865px);
-
 widthBelow865px.addEventListener('change', controlDotDisplay);
-// TODO: refactor to dynamically create the span element
+
+///////////////////////////////////////
+// Toggle Contact Forms on Button Clicks
+// const consultBtn = document.querySelector('.js--consult-btn');
+// const contactBtn = document.querySelector('.js--contact-btn');
+const formBtnsGroup = document.querySelector('.js--btn-group');
+const consultForm = document.querySelector('.consult-form');
+const contactForm = document.querySelector('.contact-form');
+
+formBtnsGroup.addEventListener('click', function (ev) {
+  const clicked = ev.target.closest('.btn-toggle-form');
+  console.log(clicked);
+
+  if (!clicked) return;
+});
 
 ///////////////////////////////////////
 // Footer Date (Year)
