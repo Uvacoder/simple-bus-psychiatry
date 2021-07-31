@@ -636,6 +636,9 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+/* .visible-form {
+  display: flex;
+} */
 .contact-form {
   height: 60rem;
 }
@@ -705,13 +708,10 @@ h2 {
   border: 3px solid var(--color--black);
   border-radius: 50%;
 }
-/* .form__radio-input:focus moved for DRY */
-
+/* focus states moved for DRY */
 .form__radio-input:checked {
   background-color: var(--color--black);
 }
-
-/* focus state moved for DRY */
 
 .contact__btn-group {
   display: flex;
@@ -731,25 +731,25 @@ h2 {
   border-radius: 0;
 }
 
-.contact__active-btn,
-.contact__active-btn:link,
-.contact__active-btn:visited {
+.contact-active-btn,
+.contact-active-btn:link,
+.contact-active-btn:visited {
   color: var(--color--white);
   background-color: var(--color-secondary-dark);
   transform: translateY(1rem);
 }
 /* NO active/hover state for active-btn class */
 
-.contact__ghost-btn,
-.contact__ghost-btn:link,
-.contact__ghost-btn:visited {
+.contact-ghost-btn,
+.contact-ghost-btn:link,
+.contact-ghost-btn:visited {
   color: var(--color--white);
   background-color: transparent;
   transition: all 0.2s;
   transform: translateY(-1rem) scale(0.9);
 }
-.contact__ghost-btn:active,
-.contact__ghost-btn:hover {
+.contact-ghost-btn:active,
+.contact-ghost-btn:hover {
   color: var(--color--black);
   background-color: var(--color--background-dark);
 }
@@ -866,15 +866,15 @@ footer {
     margin-top: 3rem;
     width: 30rem;
   }
-  .contact__active-btn,
-  .contact__active-btn:link,
-  .contact__active-btn:visited {
+  .contact-active-btn,
+  .contact-active-btn:link,
+  .contact-active-btn:visited {
     transform: translateY(7rem);
   }
 
-  .contact__ghost-btn,
-  .contact__ghost-btn:link,
-  .contact__ghost-btn:visited {
+  .contact-ghost-btn,
+  .contact-ghost-btn:link,
+  .contact-ghost-btn:visited {
     transform: translateY(-5rem) scale(0.9);
   }
 
@@ -909,9 +909,9 @@ footer {
   .footer__logo {
     width: 14rem;
   }
-  .contact__active-btn,
-  .contact__active-btn:link,
-  .contact__active-btn:visited {
+  .contact-active-btn,
+  .contact-active-btn:link,
+  .contact-active-btn:visited {
     transform: translateY(6rem);
   }
 }

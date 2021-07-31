@@ -90,7 +90,6 @@ nav.addEventListener('mouseout', handleHover.bind('#f9fbff'));
 ///////////////////////////////////////
 // Section Observer - Navigation - Toggle Active Class
 const toggleActive = function (entries) {
-  // console.table(entries);
   const entry = entries.find(oneEntry => oneEntry.isIntersecting);
 
   // if 'find' returns undefined:
@@ -101,7 +100,6 @@ const toggleActive = function (entries) {
   Array.from(navLinks, link => {
     if (link.getAttribute('href') === sectionID) foundID = link;
   });
-  // console.log(foundID);
 
   navLinks.forEach(link => link.classList.remove('nav__link--active'));
   foundID.classList.add('nav__link--active');
@@ -142,17 +140,43 @@ widthBelow865px.addEventListener('change', controlDotDisplay);
 
 ///////////////////////////////////////
 // Toggle Contact Forms on Button Clicks
-// const consultBtn = document.querySelector('.js--consult-btn');
-// const contactBtn = document.querySelector('.js--contact-btn');
-const formBtnsGroup = document.querySelector('.js--btn-group');
+const formBtnsDiv = document.querySelector('.js--btn-group');
+const consultBtn = document.querySelector('.js--consult-btn');
+const contactBtn = document.querySelector('.js--contact-btn');
 const consultForm = document.querySelector('.consult-form');
 const contactForm = document.querySelector('.contact-form');
 
-formBtnsGroup.addEventListener('click', function (ev) {
+formBtnsDiv.addEventListener('click', function (ev) {
   const clicked = ev.target.closest('.btn-toggle-form');
-  console.log(clicked);
 
   if (!clicked) return;
+
+  const dataNum = +clicked.dataset.btn;
+
+  if (dataNum === 1) {
+    // Show consultation form
+    consultForm.classList.remove('hidden');
+    contactForm.classList.add('hidden');
+
+    consultBtn.classList.remove('contact-ghost-btn');
+    contactBtn.classList.add('contact-ghost-btn');
+
+    consultBtn.classList.add('contact-active-btn');
+    contactBtn.classList.remove('contact-active-btn');
+  }
+  if (dataNum === 2) {
+    // Show contact form
+    contactForm.classList.remove('hidden');
+    consultForm.classList.add('hidden');
+
+    contactBtn.classList.remove('contact-ghost-btn');
+    consultBtn.classList.add('contact-ghost-btn');
+
+    contactBtn.classList.add('contact-active-btn');
+    consultBtn.classList.remove('contact-active-btn');
+  }
+
+  clicked.blur();
 });
 
 ///////////////////////////////////////
