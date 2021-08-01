@@ -234,7 +234,7 @@ h1 {
   letter-spacing: 1px;
   word-spacing: 3px;
 }
-h1:not(.section-about h1) {
+.normal-h1 {
   margin-bottom: 3rem;
 }
 h2 {
@@ -308,7 +308,7 @@ h2 {
   h1 {
     font-size: 3rem;
   }
-  h1:not(.section-about h1) {
+  .normal-h1 {
     margin-bottom: 2rem;
   }
   h2 {
@@ -372,7 +372,7 @@ h2 {
 
 @media only screen and (max-width: 37.5em) {
   body {
-    font-size: 1.6rem;
+    font-size: 16px;
   }
   .nav {
     padding: 0 1.5rem;
@@ -636,9 +636,6 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-/* .visible-form {
-  display: flex;
-} */
 .contact-form {
   height: 60rem;
 }
@@ -832,7 +829,7 @@ footer {
   }
   .form__input,
   .form__textarea {
-    font-size: 1.6rem;
+    font-size: 16px;
   }
   footer {
     flex-direction: column;
@@ -866,16 +863,30 @@ footer {
     margin-top: 3rem;
     width: 30rem;
   }
-  .contact-active-btn,
-  .contact-active-btn:link,
-  .contact-active-btn:visited {
+  /* when consult is the active btn */
+  .consult-btn.contact-active-btn,
+  .consult-btn.contact-active-btn:link,
+  .consult-btn.contact-active-btn:visited {
     transform: translateY(7rem);
   }
+  /* when contact is the active btn */
+  .contact-btn.contact-active-btn,
+  .contact-btn.contact-active-btn:link,
+  .contact-btn.contact-active-btn:visited {
+    transform: translateY(2rem);
+  }
 
-  .contact-ghost-btn,
-  .contact-ghost-btn:link,
-  .contact-ghost-btn:visited {
+  /* when consult is the active btn */
+  .contact-btn.contact-ghost-btn,
+  .contact-btn.contact-ghost-btn:link,
+  .contact-btn.contact-ghost-btn:visited {
     transform: translateY(-5rem) scale(0.9);
+  }
+  /* when contact is the active btn */
+  .consult-btn.contact-ghost-btn,
+  .consult-btn.contact-ghost-btn:link,
+  .consult-btn.contact-ghost-btn:visited {
+    transform: translateY(0) scale(0.9);
   }
 
   .form__group {

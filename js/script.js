@@ -21,6 +21,12 @@ const allSections = document.querySelectorAll('.section');
 const priceNodeList = document.querySelectorAll('.price');
 const widthBelow865px = window.matchMedia('(max-width: 54em)');
 
+const formBtnsDiv = document.querySelector('.js--btn-group');
+const consultBtn = document.querySelector('.js--consult-btn');
+const contactBtn = document.querySelector('.js--contact-btn');
+const consultForm = document.querySelector('.consult-form');
+const contactForm = document.querySelector('.contact-form');
+
 ///////////////////////////////////////
 // Page Navigation - Scroll to Section on Click
 const smoothScroll = function (ev) {
@@ -140,12 +146,6 @@ widthBelow865px.addEventListener('change', controlDotDisplay);
 
 ///////////////////////////////////////
 // Toggle Contact Forms on Button Clicks
-const formBtnsDiv = document.querySelector('.js--btn-group');
-const consultBtn = document.querySelector('.js--consult-btn');
-const contactBtn = document.querySelector('.js--contact-btn');
-const consultForm = document.querySelector('.consult-form');
-const contactForm = document.querySelector('.contact-form');
-
 formBtnsDiv.addEventListener('click', function (ev) {
   const clicked = ev.target.closest('.btn-toggle-form');
 
