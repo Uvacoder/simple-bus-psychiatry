@@ -253,6 +253,15 @@ formTextareas.forEach(ta => {
   ta.onfocus = removeBgColor;
 });
 
+// Remove ability to submit the forms
+const btnsNoSubmit = document.querySelectorAll('.js--btn-preventSubmit');
+
+btnsNoSubmit.forEach(btn =>
+  btn.addEventListener('click', function (ev) {
+    ev.preventDefault();
+  })
+);
+
 ///////////////////////////////////////
 // Footer Date (Year)
 const footerDate = document.querySelector('.display-date');

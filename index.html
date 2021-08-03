@@ -298,11 +298,13 @@
               class="form__textarea form__textarea--mb"
               name="messageOptional"
               id="messageSC"
-              placeholder="forms aren't functional yet"
+              placeholder="forms aren't functional yet. submit is disabled"
             ></textarea>
           </div>
           <div class="disp-flx flx-cntr">
-            <button type="submit" class="btn">Request Consultation</button>
+            <button type="submit" class="btn js--btn-preventSubmit">
+              Request Consultation
+            </button>
           </div>
         </form>
 
@@ -380,13 +382,15 @@
               class="form__textarea"
               name="message"
               id="message"
-              placeholder="forms not yet functional"
+              placeholder="forms not yet functional. submit is prevented"
               required
             ></textarea>
             <p class="form-constraint">This field is required.</p>
           </div>
           <div class="disp-flx flx-cntr">
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn js--btn-preventSubmit">
+              Send Message
+            </button>
           </div>
         </form>
       </div>
