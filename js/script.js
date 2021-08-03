@@ -22,10 +22,12 @@ const priceNodeList = document.querySelectorAll('.price');
 const widthBelow865px = window.matchMedia('(max-width: 54em)');
 
 const formBtnsDiv = document.querySelector('.js--btn-group');
-const consultBtn = document.querySelector('.js--consult-btn');
-const contactBtn = document.querySelector('.js--contact-btn');
-const consultForm = document.querySelector('.consult-form');
-const contactForm = document.querySelector('.contact-form');
+const btnConsult = document.querySelector('.js--consult-btn');
+const btnContact = document.querySelector('.js--contact-btn');
+const formConsult = document.querySelector('.consult-form');
+const formContact = document.querySelector('.contact-form');
+const formInputs = document.querySelectorAll('.form__input');
+const formTextareas = document.querySelectorAll('.form__textarea');
 
 ///////////////////////////////////////
 // Page Navigation - Scroll to Section on Click
@@ -155,29 +157,32 @@ formBtnsDiv.addEventListener('click', function (ev) {
 
   if (dataNum === 1) {
     // Show consultation form
-    consultForm.classList.remove('hidden');
-    contactForm.classList.add('hidden');
+    formConsult.classList.remove('hidden');
+    formContact.classList.add('hidden');
 
-    consultBtn.classList.remove('contact-ghost-btn');
-    contactBtn.classList.add('contact-ghost-btn');
+    btnConsult.classList.remove('contact-ghost-btn');
+    btnContact.classList.add('contact-ghost-btn');
 
-    consultBtn.classList.add('contact-active-btn');
-    contactBtn.classList.remove('contact-active-btn');
+    btnConsult.classList.add('contact-active-btn');
+    btnContact.classList.remove('contact-active-btn');
   }
   if (dataNum === 2) {
     // Show contact form
-    contactForm.classList.remove('hidden');
-    consultForm.classList.add('hidden');
+    formContact.classList.remove('hidden');
+    formConsult.classList.add('hidden');
 
-    contactBtn.classList.remove('contact-ghost-btn');
-    consultBtn.classList.add('contact-ghost-btn');
+    btnContact.classList.remove('contact-ghost-btn');
+    btnConsult.classList.add('contact-ghost-btn');
 
-    contactBtn.classList.add('contact-active-btn');
-    consultBtn.classList.remove('contact-active-btn');
+    btnContact.classList.add('contact-active-btn');
+    btnConsult.classList.remove('contact-active-btn');
   }
 
   clicked.blur();
 });
+
+///////////////////////////////////////
+// Contact Form Validation
 
 ///////////////////////////////////////
 // Footer Date (Year)

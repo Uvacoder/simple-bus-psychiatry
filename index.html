@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Manrope:wght@200;300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fauna+One&family=Manrope:wght@200;300;400;500&display=swap"
       rel="stylesheet"
     />
 
@@ -51,29 +51,29 @@
     <section class="section section-home" id="section-home">
       <h1 class="normal-h1">My Philosophy</h1>
       <div class="content disp-flx">
-        <p class="u-mb-6px">
+        <p class="home__p u-mb-6px">
           My life’s purpose is to diminish the amount of suffering in the world,
           by way of helping one person at a time.
         </p>
-        <p class="u-mb-6px">
+        <p class="home__p u-mb-6px">
           It is my belief that, when introduced to the right environment, an
           individual can make great progress towards achieving optimal mental
           health. I utilize a holistic approach that combines psychotherapy and
           pharmacotherapy. The value of finding the right balance of medication
           should not be underestimated.
         </p>
-        <p class="u-mb-6px">
+        <p class="home__p u-mb-6px">
           Working in tandem, we can enhance your overall outlook on life by
           focusing on the areas that are causing you distress. It is important
           to me that we collaborate in a way that is consistent with your values
           and beliefs.
         </p>
-        <p class="u-mb-6px">
+        <p class="home__p u-mb-6px">
           You may feel lost, but you are worthy. My goal is to assist you in
           finding your purpose; providing the environment necessary for you to
           prevail.
         </p>
-        <p class="phil-cred">&mdash; Dr. Pete Bowman, MD</p>
+        <p class="home__p phil-cred">&mdash; Dr. Pete Bowman, MD</p>
         <button class="btn cta-btn">Schedule a Free Consultation</button>
       </div>
     </section>
@@ -183,13 +183,15 @@
     <section class="section section-contact" id="section-contact">
       <h1 class="normal-h1">Contact</h1>
       <div class="content disp-flx">
-        <p class="u-mb-6px">Schedule your free consultation below!</p>
-        <p class="u-mb-6px">
+        <p class="contact__p u-mb-6px">
+          Schedule your free consultation below!
+        </p>
+        <p class="contact__p u-mb-6px">
           Dealing with the pandemic has been, at best, very stressful &mdash;
           don’t postpone tending to your mental health any longer. I’m here to
           help facilitate your overall growth, even during these trying times.
         </p>
-        <p class="u-mb-6px">
+        <p class="contact__p u-mb-6px">
           If you have other questions, feel free to fill out my contact form.
           Alternatively,
           <a
@@ -199,7 +201,7 @@
           >
           me directly.
         </p>
-        <p>Required fields are marked with an asterisk.</p>
+        <p class="contact__p">Required fields are marked with an asterisk.</p>
       </div>
       <div class="form-container">
         <div class="contact__btn-group js--btn-group">
@@ -227,32 +229,43 @@
           </button>
         </div>
         <form action="#" class="form consult-form">
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="nameSC">Name *</label>
             <input
-              class="form__input"
+              class="form__input form__input--name"
               type="text"
               name="name"
               id="nameSC"
               required
             />
+            <p class="form-constraint">Provide your full name.</p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="emailSC">Email</label>
-            <input class="form__input" type="email" name="email" id="emailSC" />
+            <input
+              class="form__input form__input--email"
+              type="email"
+              name="email"
+              id="emailSC"
+            />
+            <p class="form-constraint">
+              Enter a valid email address. (This field is optional.)
+            </p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="phoneSC">Phone *</label>
             <input
-              class="form__input"
+              class="form__input form__input--phone"
               type="tel"
               name="phone"
               id="phoneSC"
+              placeholder="XXX-XXX-XXXX"
               required
             />
+            <p class="form-constraint">Provide your 10-digit phone number.</p>
           </div>
 
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="firstChoice"
               >When should I call you? *</label
             >
@@ -263,8 +276,9 @@
               id="firstChoice"
               required
             />
+            <p class="form-constraint">Choose a valid date and time.</p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="fallbackTime"
               >Fallback time choice *</label
             >
@@ -275,84 +289,105 @@
               id="fallbackTime"
               required
             />
+            <p class="form-constraint">Choose a valid date and time.</p>
           </div>
 
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="messageSC">Message</label>
             <textarea
-              class="form__textarea"
-              name="message"
+              class="form__textarea form__textarea--mb"
+              name="messageOptional"
               id="messageSC"
               placeholder="forms aren't functional yet"
             ></textarea>
           </div>
-          <button type="submit" class="btn">Request Consultation</button>
+          <div class="disp-flx flx-cntr">
+            <button type="submit" class="btn">Request Consultation</button>
+          </div>
         </form>
 
         <!-- <form action="#" class="form"> -->
         <form action="#" class="form contact-form hidden">
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="name">Name *</label>
             <input
-              class="form__input"
+              class="form__input form__input--name"
               type="text"
               name="name"
               id="name"
               required
             />
+            <p class="form-constraint">Provide your full name.</p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="email">Email *</label>
             <input
-              class="form__input"
+              class="form__input form__input--email"
               type="email"
               name="email"
               id="email"
               required
             />
+            <p class="form-constraint">Enter a valid email address.</p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="phone">Phone</label>
-            <input class="form__input" type="tel" name="phone" id="phone" />
+            <input
+              class="form__input form__input--phone"
+              type="tel"
+              name="phone"
+              placeholder="XXX-XXX-XXXX"
+              id="phone"
+            />
+            <p class="form-constraint">
+              Provide your 10-digit phone number. (This field is optional.)
+            </p>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <!-- <label class="form__label" for="contact">Preferred contact method</label> -->
-            <label class="form__label" for="m1"
+            <label class="form__label" for="contactMethod1"
               >Preferred contact method *</label
             >
-            <div class="form__group--radio">
-              <div class="form__radio-group">
+            <div class="disp-flx form__group--radio form__group--mb">
+              <div class="form__radio-group disp-flx">
                 <input
                   type="radio"
                   name="contact-method"
-                  id="m1"
+                  id="contactMethod1"
                   class="form__radio-input"
                   checked
                 />
-                <label for="m1" class="form__radio-label">Email</label>
+                <label for="contactMethod1" class="form__radio-label"
+                  >Email</label
+                >
               </div>
-              <div class="form__radio-group">
+              <div class="form__radio-group disp-flx">
                 <input
                   type="radio"
                   name="contact-method"
-                  id="m2"
+                  id="contactMethod2"
                   class="form__radio-input"
                 />
-                <label for="m2" class="form__radio-label">Phone</label>
+                <label for="contactMethod2" class="form__radio-label"
+                  >Phone</label
+                >
               </div>
             </div>
           </div>
-          <div class="form__group">
+          <div class="form__group disp-flx">
             <label class="form__label" for="message">Message *</label>
             <textarea
               class="form__textarea"
               name="message"
               id="message"
-              placeholder="Contact form is for example purposes only."
+              placeholder="forms not yet functional"
               required
             ></textarea>
+            <p class="form-constraint">This field is required.</p>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <div class="disp-flx flx-cntr">
+            <button type="submit" class="btn">Send Message</button>
+          </div>
         </form>
       </div>
     </section>

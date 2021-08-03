@@ -18,8 +18,10 @@ BREAKPOINTS
   --color-secondary: #db6a0d;
   --color-secondary-dark: #c35c08;
 
-  --color-error: #db360d;
-  /* #c85e07          original -> #db870d; */
+  --color-error: #db140d;
+  --color-error-text: #7f0c08;
+  --color-error-background: #f5c6c4;
+  /* #db360d */
   --color-success: #26bc5b;
   --color-focus-light: #4a83ed;
   --color-focus: #356acb;
@@ -247,8 +249,8 @@ h2 {
   font-size: 1.9rem;
 }
 
-.section-home p,
-.section-contact p {
+.home__p,
+.contact__p {
   width: 690px;
 }
 
@@ -272,6 +274,9 @@ h2 {
 /* REUSABLE + utility classes */
 .disp-flx {
   display: flex;
+}
+.flx-cntr {
+  justify-content: center;
 }
 .content {
   flex-direction: column;
@@ -360,8 +365,8 @@ h2 {
     margin: auto 2rem;
     align-items: flex-start;
   }
-  .section-home p,
-  .section-contact p {
+  .home__p,
+  .contact__p {
     width: unset;
   }
   .phil-cred {
@@ -628,36 +633,23 @@ h2 {
 .form {
   background-color: var(--color--background-dark);
   border-radius: 3px;
-  width: 50rem;
+  padding: 4rem 7rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 50rem;
 }
-.contact-form {
-  height: 60rem;
-}
-.consult-form {
-  height: 67rem;
-}
-
 .form__group {
-  display: grid;
-  margin-bottom: 15px;
-  width: 320px;
+  flex-direction: column;
+}
+.form__group--radio,
+.form__radio-group {
+  justify-content: space-between;
 }
 .form__group--radio {
   width: 210px;
-  display: flex;
-  justify-content: space-between;
 }
 .form__radio-group {
   width: 80px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .form__input,
@@ -667,9 +659,10 @@ h2 {
   color: var(--color-text-black);
   background-color: var(--color--white);
   padding: 3px;
+  margin: 3px 0 6px;
   border: none;
   border-radius: 3px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   transition: all 0.2s;
 }
 
@@ -677,19 +670,64 @@ h2 {
   height: 30px;
 }
 .form__textarea {
-  height: 100px;
+  height: 12rem;
+}
+.form__group--mb {
+  margin-bottom: 1.3rem;
+}
+.form__textarea--mb {
   margin-bottom: 2.5rem;
 }
 
 .form__input:focus,
 .form__textarea:focus {
   outline: none;
-  border-bottom: 2px solid var(--color-focus);
+  border-bottom: 2px solid var(--color-text-black);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
 }
-.form__input:focus:invalid,
-.form__textarea:focus:invalid {
-  border-bottom: 2px solid var(--color-focus-orange);
+.form__input--date,
+.form__input--name {
+  width: 25rem;
+}
+.form__input--phone {
+  width: 18rem;
+}
+.form__textarea,
+.form__input--email {
+  width: 35rem;
+}
+
+/* Error message <p>'s + input outline */
+.form-constraint {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.3;
+  max-width: max-content;
+  color: var(--color-error-text);
+  padding: 0.8rem 1.5rem;
+  border-radius: 2px;
+  background-color: var(--color-error-background);
+  height: 0;
+  opacity: 0;
+
+  transition: all 0.2s;
+}
+.valid:focus {
+  outline: var(--color-success) 2px solid;
+}
+.invalid:focus {
+  outline: var(--color-error) 2px solid;
+}
+.valid:focus.form__input,
+.valid:focus.form__textarea,
+.invalid:focus.form__input,
+.invalid:focus.form__textarea {
+  border-radius: 0;
+}
+.invalid + .form-constraint {
+  height: auto;
+  opacity: 1;
 }
 
 .form__radio-label {
@@ -892,9 +930,6 @@ footer {
   .form__group {
     width: 90%;
   }
-  .form__textarea {
-    margin-bottom: 1rem;
-  }
 
   footer {
     padding: 20px 5px;
@@ -905,9 +940,6 @@ footer {
 }
 
 @media only screen and (max-width: 20em) {
-  .consult-form {
-    height: 65rem;
-  }
   .form__group--radio {
     width: unset;
     flex-direction: column;
