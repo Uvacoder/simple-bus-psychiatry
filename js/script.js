@@ -47,7 +47,7 @@ const smoothScroll = function (ev) {
 };
 allNavLinks.addEventListener('click', smoothScroll);
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Scroll to Top on Logo Click
 const scrollToTop = function (ev) {
   ev.preventDefault();
@@ -57,7 +57,7 @@ const scrollToTop = function (ev) {
 headerLogo.addEventListener('click', scrollToTop);
 footerLogo.addEventListener('click', scrollToTop);
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Scroll to Contact Section on CTA Btn Click
 const scrollToContact = function (ev) {
   ev.preventDefault();
@@ -66,7 +66,7 @@ const scrollToContact = function (ev) {
 };
 ctaBtn.addEventListener('click', scrollToContact);
 
-///////////////////////////////////////
+////////////////////////////////////////////
 //  Clicks on Mobile Nav Icon
 const toggleMenu = function () {
   iconMenu.classList.toggle('hidden');
@@ -80,7 +80,7 @@ iconClose.addEventListener('click', toggleMenu);
 iconMenu.addEventListener('keypress', toggleMenu);
 iconClose.addEventListener('keypress', toggleMenu);
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Menu Hover Fade Animation
 const handleHover = function (ev) {
   if (ev.target.classList.contains('nav__link')) {
@@ -95,7 +95,7 @@ const handleHover = function (ev) {
 nav.addEventListener('mouseover', handleHover.bind('#1e1854'));
 nav.addEventListener('mouseout', handleHover.bind('#f9fbff'));
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Section Observer - Navigation - Toggle Active Class
 const toggleActive = function (entries) {
   const entry = entries.find(oneEntry => oneEntry.isIntersecting);
@@ -119,7 +119,7 @@ const sectionObserver = new IntersectionObserver(toggleActive, {
 });
 allSections.forEach(section => sectionObserver.observe(section));
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Toggle Dots (in FAQ Answer) @ width 864px
 const initialValues = ['$190', '$270', '$140', '$200'];
 const initialStrings = [
@@ -146,7 +146,7 @@ function controlDotDisplay(width) {
 controlDotDisplay(widthBelow865px);
 widthBelow865px.addEventListener('change', controlDotDisplay);
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Toggle Contact Forms on Button Clicks
 formBtnsDiv.addEventListener('click', function (ev) {
   const clicked = ev.target.closest('.btn-toggle-form');
@@ -181,8 +181,77 @@ formBtnsDiv.addEventListener('click', function (ev) {
   clicked.blur();
 });
 
-///////////////////////////////////////
+////////////////////////////////////////////
 // Contact Form Validation
+const patterns = {
+  name: new RegExp('^[a-z]{2,} [a-z]{2,}$', 'i'),
+  // ⌄SEE: ->  https://regex101.com/r/FHsYQi/2
+  //   prettier-ignore
+  email: new RegExp('^([a-z\\d\\.-]+)@([a-z\\d-]+)\\.([a-z]{2,8})(\\.[a-z]{2,8})?$', 'i'),
+  // ⌄SEE: ->  https://regex101.com/r/RB6Ee6/2
+  phone: new RegExp('^(\\d{3}-?\\d{3}-?\\d{4})$'),
+  // ⌄ matches everything
+  message: new RegExp('^[^]+$'),
+};
+
+//////////////////////
+// Validate user input
+const validate = function (field, regex) {
+  if (regex.test(field.value)) {
+    field.classList.add('valid');
+    field.classList.remove('invalid');
+  } else {
+    field.classList.add('invalid');
+    field.classList.remove('valid');
+  }
+};
+
+// Callback to Run when Form Receives Input
+const passToValidator = function (ev) {
+  //   console.log(ev.target.name);
+  if (
+    ev.target.name === 'choiceOne' ||
+    ev.target.name === 'choiceTwo' ||
+    ev.target.name === 'messageOptional' ||
+    ev.target.name === 'contactMethod' ||
+    ev.target.type === 'submit'
+  )
+    return;
+  //  ^ choiceOne and choiceTwo, at least till i get the simplepicker going. messageOptional, contactMethod, & submit stay
+  //   if (!ev.target) return;
+  // ^ questionable if this is needed.. i mean i would think it is, but maybe not?
+
+  validate(ev.target, patterns[ev.target.name]);
+};
+
+formConsult.addEventListener('keyup', passToValidator);
+formContact.addEventListener('keyup', passToValidator);
+
+//////////////////////
+// Handle Various Error States
+// When Field is Blurred -- Remove error message. Add backgroundColor when field is invalid AND required
+const removeErrorMsg = ev => {
+  const evT = ev.target;
+
+  // if field is required & there's user error, highlight the field background
+  if (evT.required && evT.classList.contains('invalid'))
+    evT.style.backgroundColor = '#f5c6c4';
+  // if field has 'invalid' class, remove the message 5 seconds after blur
+  if (evT.classList.contains('invalid'))
+    setTimeout(() => evT.classList.remove('invalid'), 5000);
+};
+
+// When Field is Focused -- Remove red background color
+const removeBgColor = ev => (ev.target.style.backgroundColor = '#fff');
+
+formInputs.forEach(input => {
+  input.onblur = removeErrorMsg;
+  input.onfocus = removeBgColor;
+});
+formTextareas.forEach(ta => {
+  ta.onblur = removeErrorMsg;
+  ta.onfocus = removeBgColor;
+});
 
 ///////////////////////////////////////
 // Footer Date (Year)
