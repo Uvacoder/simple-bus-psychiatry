@@ -14,18 +14,15 @@ BREAKPOINTS
   --color-text-black: #100d2c;
   --color--dark-blue: #1c4083;
   --color--background-dark: #e7eefd;
-  --color-link: #d1e0ff;
   --color-secondary: #db6a0d;
   --color-secondary-dark: #c35c08;
 
   --color-error: #db140d;
   --color-error-text: #7f0c08;
   --color-error-background: #f5c6c4;
-  /* #db360d */
   --color-success: #26bc5b;
   --color-focus-light: #4a83ed;
   --color-focus: #356acb;
-  --color-focus-orange: #db870d;
 }
 
 * {
@@ -48,7 +45,6 @@ body {
   font-size: 1.7rem;
 }
 
-/* ---------------- */
 /* NAVIGATION */
 .nav {
   position: fixed;
@@ -138,7 +134,7 @@ body {
 .link-contact,
 .link-contact:link,
 .link-contact:visited {
-  color: var(--color-link);
+  color: #d1e0ff;
 }
 .link-contact:active,
 .link-contact:hover {
@@ -209,10 +205,8 @@ body {
 .section {
   padding: 12rem 0 10rem;
 
-  /* IMPORTANT-AF: for combination use with JS smooth-scroll */
+  /* IMPORTANT-AF: for use with JS smooth-scroll */
   scroll-margin-top: 5rem;
-  /* safari = snap */
-  scroll-snap-margin-top: 5rem;
 }
 a {
   padding: 5px;
@@ -252,8 +246,7 @@ a {
   width: 690px;
 }
 
-/* ---------------- */
-/* SECTION HOME */
+/* SECTION: HOME */
 .section-home {
   padding: 16rem 0 9rem;
   background-color: inherit;
@@ -280,9 +273,6 @@ a {
   flex-direction: column;
   align-items: center;
 }
-.u-mb-3px {
-  margin-bottom: 3px;
-}
 .u-mb-6px {
   margin-bottom: 6px;
 }
@@ -293,9 +283,7 @@ a {
   width: 64rem;
 }
 
-/* ---------------- */
-/* ABOVE THE FOLD MEDIA QUERIES */
-/* ---------------- */
+/* QUERY: ABOVE THE FOLD */
 @media only screen and (max-width: 78.2em) {
   .w800-mod {
     width: 70rem;
@@ -305,8 +293,6 @@ a {
 @media only screen and (max-width: 54em) {
   .section {
     scroll-margin-top: 3rem;
-    /* safari = snap */
-    scroll-snap-margin-top: 3rem;
     padding: 10rem 0 8rem;
   }
   .section-home {
@@ -446,8 +432,7 @@ a {
   }
 }
 
-/* ---------------- */
-/* SECTION ABOUT */
+/* SECTION: ABOUT */
 .section-about {
   background-color: var(--color--background-dark);
   transform: skewY(-5deg);
@@ -491,16 +476,13 @@ a {
   margin-bottom: 2.5rem;
 }
 .about__h2--1 {
-  /* margin: 3rem auto 2rem; */
   margin-top: 3rem;
 }
 .about__h2--2 {
-  /* margin: 4rem auto 2rem; */
   margin-top: 4.5rem;
 }
 
-/* ---------------- */
-/* SECTION FAQ */
+/* SECTION: FAQ */
 .section-faq {
   transform: skewY(-5deg);
   background-color: inherit;
@@ -530,12 +512,11 @@ a {
 }
 
 .price {
+  margin-bottom: 3px;
   justify-content: space-between;
 }
 
-/* ---------------- */
-/* ABOUT & FAQ MEDIA QUERIES */
-/* ---------------- */
+/* QUERY: ABOUT & FAQ */
 @media only screen and (max-width: 78.2em) {
   .about__subheading {
     margin-left: 8%;
@@ -582,10 +563,11 @@ a {
   }
   .price {
     width: 100%;
-    justify-content: start;
+    margin-bottom: 6px;
+    align-items: center;
   }
-  .js--price {
-    justify-self: flex-end;
+  .price-amount {
+    margin-left: 2rem;
   }
 }
 
@@ -596,6 +578,9 @@ a {
   }
   .flex__block--1 ul:first-of-type {
     margin-right: 0;
+  }
+  .price:not(:last-of-type) {
+    margin-bottom: 10px;
   }
 }
 
@@ -625,8 +610,7 @@ a {
   }
 }
 
-/* ---------------- */
-/* SECTION CONTACT */
+/* SECTION: CONTACT */
 .section-contact {
   background: linear-gradient(#1c4083 25%, #1e1854);
   margin-top: -10rem;
@@ -799,8 +783,7 @@ a {
   background-color: var(--color--background-dark);
 }
 
-/* ---------------- */
-/* FOOTER */
+/* SECTION: FOOTER */
 footer {
   font-family: 'Manrope', sans-serif;
   background-color: var(--color--background-dark);
@@ -850,9 +833,7 @@ footer {
   align-self: flex-end;
 }
 
-/* ---------------- */
-/* CONTACT & FOOTER MEDIA QUERIES */
-/* ---------------- */
+/* QUERY: CONTACT & FOOTER */
 @media only screen and (max-width: 54em) {
   footer {
     padding: 40px 20px 20px;
