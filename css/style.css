@@ -207,7 +207,7 @@ body {
 /* ---------------- */
 /* GENERAL */
 .section {
-  padding: 9rem 0;
+  padding: 12rem 0 10rem;
 
   /* IMPORTANT-AF: for combination use with JS smooth-scroll */
   scroll-margin-top: 5rem;
@@ -222,8 +222,8 @@ a {
 }
 
 /* TYPOGRAPHY */
-h1,
-h2 {
+.h1,
+.h2 {
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
   line-height: 1.2;
@@ -231,33 +231,31 @@ h2 {
   font-weight: 200;
   color: #1c4083;
 }
-h1 {
+.h1 {
   font-size: 3.5rem;
   letter-spacing: 1px;
   word-spacing: 3px;
-}
-.normal-h1 {
   margin-bottom: 3rem;
 }
-h2 {
+.h2 {
   font-size: 2.8rem;
   letter-spacing: 0.5px;
 }
 
-.question,
 .paragraph-large {
   font-size: 1.9rem;
 }
 
 .home__p,
 .contact__p {
+  margin-bottom: 1.5rem;
   width: 690px;
 }
 
 /* ---------------- */
 /* SECTION HOME */
 .section-home {
-  padding: 15rem 0 7rem;
+  padding: 16rem 0 9rem;
   background-color: inherit;
 }
 
@@ -309,14 +307,15 @@ h2 {
     scroll-margin-top: 3rem;
     /* safari = snap */
     scroll-snap-margin-top: 3rem;
+    padding: 10rem 0 8rem;
   }
-  h1 {
+  .section-home {
+    padding: 15rem 0 8rem;
+  }
+  .h1 {
     font-size: 3rem;
   }
-  .normal-h1 {
-    margin-bottom: 2rem;
-  }
-  h2 {
+  .h2 {
     font-size: 2.4rem;
     letter-spacing: 0.3px;
   }
@@ -377,20 +376,27 @@ h2 {
 
 @media only screen and (max-width: 37.5em) {
   body {
-    font-size: 16px;
+    line-height: 1.5;
   }
   .nav {
     padding: 0 1.5rem;
   }
-
-  h1,
-  h2 {
+  .section {
+    padding: 8rem 0 7rem;
+  }
+  .section-home {
+    padding: 15rem 0 8rem;
+  }
+  .h1,
+  .h2 {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .question,
   .paragraph-large {
     font-size: 1.8rem;
+  }
+  .phil-cred {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 30em) {
@@ -403,14 +409,10 @@ h2 {
     margin: 5px 0;
   }
   .section-home {
-    padding: 12rem 0 6rem;
+    padding: 12rem 0 7rem;
   }
-  .u-mb-6px {
-    margin-bottom: 10px;
-  }
-  .question,
   .paragraph-large {
-    font-size: 1.7rem;
+    font-size: 17px;
   }
   .cta-btn {
     width: 20rem;
@@ -424,14 +426,14 @@ h2 {
   .nav__links {
     right: 20%;
   }
-  h1 {
+  .h1 {
     font-size: 23px;
   }
-  h2 {
+  .h2 {
     font-size: 19px;
   }
   .section-home {
-    padding: 11rem 0 5rem;
+    padding: 11rem 0 6rem;
   }
   .btn,
   .btn:link,
@@ -447,7 +449,6 @@ h2 {
 /* ---------------- */
 /* SECTION ABOUT */
 .section-about {
-  padding: 9rem 0 8rem;
   background-color: var(--color--background-dark);
   transform: skewY(-5deg);
 }
@@ -486,9 +487,16 @@ h2 {
 .about__subheading {
   margin-left: 15%;
 }
-
-.section-about h2 {
-  margin: 3rem auto 1.5rem;
+.about__h2 {
+  margin-bottom: 2.5rem;
+}
+.about__h2--1 {
+  /* margin: 3rem auto 2rem; */
+  margin-top: 3rem;
+}
+.about__h2--2 {
+  /* margin: 4rem auto 2rem; */
+  margin-top: 4.5rem;
 }
 
 /* ---------------- */
@@ -512,14 +520,12 @@ h2 {
 .question {
   margin-bottom: 8px;
   margin-left: 12%;
-}
-
-.question:not(:first-of-type) {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .answer,
 .answer-block {
+  margin-bottom: 1.5rem;
   align-self: center;
 }
 
@@ -540,12 +546,11 @@ h2 {
 }
 
 @media only screen and (max-width: 54em) {
-  .section-about h2 {
-    margin: 2 auto 1.5rem;
+  .about__subheading {
+    margin: 0 0 8px 3rem;
   }
-  .about__subheading,
   .question {
-    margin: 0 0 0.8rem 3rem;
+    margin: 1.5rem 1.7rem 8px 3rem;
   }
   .flex__block--3 {
     margin: auto;
@@ -573,11 +578,14 @@ h2 {
   .answer,
   .answer-block {
     align-self: flex-start;
-    margin: auto 20px auto 40px;
+    margin: auto 20px 12px 40px;
   }
   .price {
     width: 100%;
     justify-content: start;
+  }
+  .js--price {
+    justify-self: flex-end;
   }
 }
 
@@ -592,10 +600,6 @@ h2 {
 }
 
 @media only screen and (max-width: 30em) {
-  .section-about,
-  .section-faq {
-    padding: 6rem 0;
-  }
   .flex__block--1,
   .flex__block--2,
   .flex__block--2:last-of-type {
@@ -603,18 +607,21 @@ h2 {
     margin-right: 1.7rem;
   }
 
-  .about__subheading,
-  .question,
   .answer,
   .answer-block {
-    margin: auto 1.7rem;
-  }
-  .question {
-    margin-bottom: 5px;
-    line-height: 1.6;
+    margin: 0 1.7rem 1.3rem;
   }
   .about__subheading {
-    margin-bottom: 8px;
+    margin: 5px 1.7rem 10px;
+  }
+  .question {
+    margin: 1.5rem 1.7rem 8px;
+  }
+  .question:not(:first-of-type) {
+    margin-top: 2.9rem;
+  }
+  .faq__h1 {
+    margin-bottom: 2rem;
   }
 }
 
@@ -623,7 +630,7 @@ h2 {
 .section-contact {
   background: linear-gradient(#1c4083 25%, #1e1854);
   margin-top: -10rem;
-  padding: 19rem 0 9rem;
+  padding: 22rem 0 10rem;
 }
 .section-contact .content,
 .section-contact h1 {
@@ -850,6 +857,9 @@ footer {
   footer {
     padding: 40px 20px 20px;
   }
+  .section-contact {
+    padding: 19rem 0 9rem;
+  }
   .icon-group,
   .lex {
     width: 160px;
@@ -862,7 +872,7 @@ footer {
 @media only screen and (max-width: 37.5em) {
   .section-contact {
     margin-top: -6rem;
-    padding: 15rem 0 7rem;
+    padding: 14rem 0 7rem;
   }
   .form {
     border-radius: 0;
@@ -895,7 +905,7 @@ footer {
 
 @media only screen and (max-width: 30em) {
   .section-contact {
-    padding: 12rem 0 5rem;
+    padding: 13rem 0 5rem;
   }
   .contact__btn-group {
     flex-direction: column;
