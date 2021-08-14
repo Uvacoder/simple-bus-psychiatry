@@ -83,6 +83,7 @@ iconClose.addEventListener('keypress', toggleMenu);
 ////////////////////////////////////////////
 // Menu Hover Fade Animation
 const handleHover = function (ev) {
+  if (window.matchMedia('(hover: none)').matches) return;
   if (ev.target.classList.contains('nav__link')) {
     const link = ev.target;
     const siblings = link.closest('nav').querySelectorAll('.nav__link');
