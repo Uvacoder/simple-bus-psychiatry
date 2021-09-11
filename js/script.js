@@ -1,4 +1,5 @@
 // 'use strict';
+// import 'core-js/stable';
 
 // ELEMENTS
 const nav = document.querySelector('nav');

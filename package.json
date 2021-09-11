@@ -1,0 +1,22 @@
+{
+  "name": "prevail_psychiatry",
+  "version": "1.0.0",
+  "description": "psychiatrist lorem ipsum site",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-anson/prevail-psychiatry.git"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-anson/prevail-psychiatry/issues"
+  },
+  "homepage": "https://github.com/alex-anson/prevail-psychiatry#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
