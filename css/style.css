@@ -122,22 +122,22 @@ body {
 .link:hover {
   border-bottom: 1px solid transparent;
 }
-.link-faq,
-.link-faq:link,
-.link-faq:visited {
+.link-lightBG,
+.link-lightBG:link,
+.link-lightBG:visited {
   color: var(--color--black);
 }
-.link-faq:active,
-.link-faq:hover {
+.link-lightBG:active,
+.link-lightBG:hover {
   color: var(--color-text-black);
 }
-.link-contact,
-.link-contact:link,
-.link-contact:visited {
+.link-darkBG,
+.link-darkBG:link,
+.link-darkBG:visited {
   color: #d1e0ff;
 }
-.link-contact:active,
-.link-contact:hover {
+.link-darkBG:active,
+.link-darkBG:hover {
   color: var(--color--white);
 }
 
@@ -171,7 +171,7 @@ body {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
 }
 /* FOCUS STATES */
-.link-contact:focus,
+.link-darkBG:focus,
 .nav-icon:focus,
 .nav__link:focus,
 .nav__logo-link:focus {
@@ -180,7 +180,7 @@ body {
 .footer__logo-link:focus,
 .btn:focus,
 .btn-toggle-form:focus,
-.link-faq:focus,
+.link-lightBG:focus,
 .nav-icon:focus,
 .nav__link:focus,
 .nav__logo-link:focus {
@@ -190,7 +190,7 @@ body {
 .form__radio-input:focus {
   outline: 3px dotted var(--color-focus);
 }
-.link-contact:focus {
+.link-darkBG:focus {
   outline: 3px dotted var(--color--white);
 }
 
