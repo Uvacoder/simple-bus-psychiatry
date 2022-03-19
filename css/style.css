@@ -171,9 +171,7 @@ body {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
 }
 /* FOCUS STATES */
-.link-faq:focus,
 .link-contact:focus,
-.icon-group a:focus,
 .nav-icon:focus,
 .nav__link:focus,
 .nav__logo-link:focus {
@@ -181,6 +179,7 @@ body {
 }
 .footer__logo-link:focus,
 .btn:focus,
+.btn-toggle-form:focus,
 .link-faq:focus,
 .nav-icon:focus,
 .nav__link:focus,
@@ -195,8 +194,9 @@ body {
   outline: 3px dotted var(--color--white);
 }
 
-.btn:focus {
-  border: 3px solid var(--color--background-dark);
+.btn:focus,
+.btn-toggle-form:focus {
+  outline-offset: 3.5px;
   border-radius: 0;
 }
 
@@ -755,10 +755,6 @@ a {
   z-index: 10;
   border: 3px solid var(--color--white);
 }
-.btn-toggle-form:focus {
-  outline: 4px dotted var(--color-secondary);
-  border-radius: 0;
-}
 
 .contact-active-btn,
 .contact-active-btn:link,
@@ -794,14 +790,22 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-.icon-group,
-.prevail-group,
-.lex {
+
+.prevail-group {
   width: 240px;
 }
+.icon-group,
+.lex {
+  width: 180px;
+}
+.lex {
+  align-self: flex-end;
+  text-align: right;
+}
+
 .icon-group {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   line-height: 0;
 }
 
@@ -829,10 +833,6 @@ footer {
   line-height: 1;
 }
 
-.lex {
-  align-self: flex-end;
-}
-
 /* QUERY: CONTACT & FOOTER */
 @media only screen and (max-width: 54em) {
   footer {
@@ -845,8 +845,30 @@ footer {
   .lex {
     width: 160px;
   }
+  .icon-group {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 47em) {
+  footer {
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .prevail-group {
+    margin: 25px 0 10px;
+  }
+
+  .prevail-group,
   .lex {
-    text-align: right;
+    width: unset;
+  }
+
+  .lex {
+    align-self: center;
+    text-align: center;
+    margin-top: 2rem;
   }
 }
 
@@ -863,24 +885,10 @@ footer {
   .form__textarea {
     font-size: 16px;
   }
-  footer {
-    flex-direction: column;
-    font-size: 1.5rem;
-  }
-  .prevail-group {
-    margin: 25px 0 10px;
-  }
-  .prevail-group,
-  .lex {
-    width: unset;
-  }
+
   .icon {
     width: 3rem;
     height: 3rem;
-  }
-  .lex {
-    align-self: center;
-    text-align: center;
   }
 }
 
