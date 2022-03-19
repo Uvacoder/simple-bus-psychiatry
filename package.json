@@ -17,6 +17,11 @@
     "url": "https://github.com/alex-anson/prevail-psychiatry/issues"
   },
   "homepage": "https://github.com/alex-anson/prevail-psychiatry#readme",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.3.2",
+    "@parcel/transformer-webmanifest": "^2.3.2"
+  },
+  "dependencies": {
+    "parcel": "^2.3.2"
+  }
 }
