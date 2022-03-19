@@ -29,6 +29,8 @@ const formConsult = document.querySelector('.consult-form');
 const formContact = document.querySelector('.contact-form');
 const formInputs = document.querySelectorAll('.form__input');
 const formTextareas = document.querySelectorAll('.form__textarea');
+const dateInput1 = document.querySelector('.js--date-1');
+const dateInput2 = document.querySelector('.js--date-2');
 
 ///////////////////////////////////////
 // Page Navigation - Scroll to Section on Click
@@ -187,6 +189,11 @@ const patterns = {
   phone: new RegExp('^(\\d{3}-?\\d{3}-?\\d{4})$'),
   // ⌄ matches everything
   message: new RegExp('^[^]+$'),
+
+  // choiceOne and choiceTwo need to match this format:
+  // 2022-03-24T04:58
+  choiceOne: new RegExp('^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2})$'),
+  choiceTwo: new RegExp('^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2})$'),
 };
 
 //////////////////////
@@ -203,24 +210,20 @@ const validate = function (field, regex) {
 
 // Callback to Run when Form Receives Input
 const passToValidator = function (ev) {
-  //   console.log(ev.target.name);
   if (
-    ev.target.name === 'choiceOne' ||
-    ev.target.name === 'choiceTwo' ||
     ev.target.name === 'messageOptional' ||
     ev.target.name === 'contactMethod' ||
     ev.target.type === 'submit'
   )
     return;
-  //  ^ choiceOne and choiceTwo, at least till i get the simplepicker going. messageOptional, contactMethod, & submit stay
-  //   if (!ev.target) return;
-  // ^ questionable if this is needed.. i mean i would think it is, but maybe not?
-
+  console.log(ev.target.value);
   validate(ev.target, patterns[ev.target.name]);
 };
 
 formConsult.addEventListener('keyup', passToValidator);
 formContact.addEventListener('keyup', passToValidator);
+dateInput1.addEventListener('change', passToValidator);
+dateInput2.addEventListener('change', passToValidator);
 
 //////////////////////
 // Handle Various Error States
