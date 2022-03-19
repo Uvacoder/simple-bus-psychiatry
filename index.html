@@ -278,18 +278,6 @@
             <p class="form-constraint">Provide your first and last name.</p>
           </div>
           <div class="form__group disp-flx">
-            <label class="form__label" for="emailSC">Email</label>
-            <input
-              class="form__input form__input--email"
-              type="email"
-              name="email"
-              id="emailSC"
-            />
-            <p class="form-constraint">
-              Enter a valid email address. (This field is optional.)
-            </p>
-          </div>
-          <div class="form__group disp-flx">
             <label class="form__label" for="phoneSC">Phone *</label>
             <input
               class="form__input form__input--phone"
@@ -307,7 +295,7 @@
               >When should I call you? *</label
             >
             <input
-              class="form__input form__input--date"
+              class="form__input form__input--date js--date-1"
               type="datetime-local"
               name="choiceOne"
               id="firstChoice"
@@ -320,7 +308,7 @@
               >Fallback time choice *</label
             >
             <input
-              class="form__input form__input--date"
+              class="form__input form__input--date js--date-2"
               type="datetime-local"
               name="choiceTwo"
               id="secondChoice"
@@ -335,7 +323,7 @@
               class="form__textarea form__textarea--mb"
               name="messageOptional"
               id="messageSC"
-              placeholder="forms aren't done. submit is disabled"
+              placeholder="This is a portfolio piece. Submitting the form won't do anything."
             ></textarea>
           </div>
           <div class="disp-flx flx-cntr">
@@ -385,7 +373,7 @@
             <label class="form__label" for="contactMethod1"
               >Preferred contact method *</label
             >
-            <div class="disp-flx form__group--radio form__group--mb">
+            <div class="disp-flx form__group--radio">
               <div class="form__radio-group disp-flx">
                 <input
                   type="radio"
@@ -417,7 +405,7 @@
               class="form__textarea"
               name="message"
               id="message"
-              placeholder="forms aren't done. submit is disabled"
+              placeholder="This is a portfolio piece. Submitting the form won't do anything."
               required
             ></textarea>
             <p class="form-constraint">This field is required.</p>

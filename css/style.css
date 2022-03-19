@@ -701,13 +701,14 @@ a {
 .form {
   background-color: var(--color--background-dark);
   border-radius: 3px;
-  padding: 40px 7rem;
+  padding: 50px 7rem 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 50rem;
 }
 
 .form__group {
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .form__group--radio,
@@ -717,6 +718,7 @@ a {
 
 .form__group--radio {
   width: 210px;
+  margin-bottom: 2rem;
 }
 
 .form__radio-group {
@@ -744,10 +746,6 @@ a {
 
 .form__textarea {
   height: 12rem;
-}
-
-.form__group--mb {
-  margin-bottom: 1.3rem;
 }
 
 .form__textarea--mb {
