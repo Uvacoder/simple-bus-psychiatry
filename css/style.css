@@ -243,7 +243,7 @@ a {
 .home__p,
 .contact__p {
   margin-bottom: 1.5rem;
-  width: 690px;
+  max-width: 690px;
 }
 
 /* SECTION: HOME */
@@ -347,12 +347,8 @@ a {
     width: unset;
   }
   .content {
-    margin: auto 2rem;
+    margin: auto 3rem;
     align-items: flex-start;
-  }
-  .home__p,
-  .contact__p {
-    width: unset;
   }
   .phil-cred {
     align-self: flex-end;
@@ -361,9 +357,6 @@ a {
 }
 
 @media only screen and (max-width: 37.5em) {
-  body {
-    line-height: 1.5;
-  }
   .nav {
     padding: 0 1.5rem;
   }
@@ -403,9 +396,6 @@ a {
   .cta-btn {
     width: 20rem;
   }
-  .content {
-    margin: auto 1.7rem;
-  }
 }
 
 @media only screen and (max-width: 20em) {
@@ -414,6 +404,9 @@ a {
   }
   .h1 {
     font-size: 23px;
+  }
+  .content {
+    margin: auto 2rem;
   }
   .h2 {
     font-size: 19px;
@@ -455,7 +448,7 @@ a {
 }
 
 .flex__block--1 {
-  margin: auto 2rem auto 4rem;
+  margin: auto 3rem auto 5rem;
 }
 
 .flex__block--1 ul:first-of-type {
@@ -505,8 +498,7 @@ a {
   margin-top: 1.5rem;
 }
 
-.answer,
-.answer-block {
+.answer {
   margin-bottom: 1.5rem;
   align-self: center;
 }
@@ -548,18 +540,18 @@ a {
   .flex__block--1 ul:first-of-type {
     margin-right: 35px;
   }
+  .flex__block--1,
   .flex__block--2,
   .flex__block--2:last-of-type {
-    margin-left: 5rem;
+    margin-left: 7rem;
   }
   .section-faq,
   .section-about {
     padding-bottom: 7rem;
   }
-  .answer,
-  .answer-block {
+  .answer {
     align-self: flex-start;
-    margin: auto 20px 12px 40px;
+    margin: auto 3rem 12px 4rem;
   }
   .price {
     width: 100%;
@@ -567,7 +559,7 @@ a {
     align-items: center;
   }
   .price-amount {
-    margin-left: 2rem;
+    margin-left: 3rem;
   }
 }
 
@@ -592,9 +584,8 @@ a {
     margin-right: 1.7rem;
   }
 
-  .answer,
-  .answer-block {
-    margin: 0 1.7rem 1.3rem;
+  .answer {
+    margin: 0 3rem 1.3rem;
   }
   .about__subheading {
     margin: 5px 1.7rem 10px;
@@ -607,6 +598,15 @@ a {
   }
   .faq__h1 {
     margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 20em) {
+  .answer {
+    margin: 0 2rem 1.3rem;
+  }
+  .price-amount {
+    margin-left: 2rem;
   }
 }
 
