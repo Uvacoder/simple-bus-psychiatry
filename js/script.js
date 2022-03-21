@@ -1,5 +1,4 @@
 // 'use strict';
-// import 'core-js/stable';
 
 // ELEMENTS
 const nav = document.querySelector('nav');
@@ -195,6 +194,7 @@ const patterns = {
   choiceOne: new RegExp('^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2})$'),
   choiceTwo: new RegExp('^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2})$'),
 };
+// TODO: simplepicker. https://github.com/priyank-p/simplepicker
 
 //////////////////////
 // Validate user input
@@ -216,7 +216,7 @@ const passToValidator = function (ev) {
     ev.target.type === 'submit'
   )
     return;
-  console.log(ev.target.value);
+  // console.log(ev.target.value);
   validate(ev.target, patterns[ev.target.name]);
 };
 
