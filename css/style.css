@@ -262,7 +262,7 @@ a {
 .home__p,
 .contact__p {
   margin-bottom: 1.5rem;
-  max-width: 690px;
+  width: 690px;
 }
 
 /* SECTION: HOME */
@@ -382,6 +382,12 @@ a {
   .content {
     margin: auto 3rem;
     align-items: flex-start;
+  }
+
+  .home__p,
+  .contact__p {
+    width: auto;
+    max-width: 690px;
   }
 
   .phil-cred {
