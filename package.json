@@ -2,7 +2,6 @@
   "name": "prevail_psychiatry",
   "version": "1.0.0",
   "description": "psychiatrist lorem ipsum site",
-  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
