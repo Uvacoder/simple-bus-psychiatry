@@ -14,8 +14,8 @@ BREAKPOINTS
   --color-text-black: #100d2c;
   --color--dark-blue: #1c4083;
   --color--background-dark: #e7eefd;
-  --color-secondary: #db6a0d;
-  --color-secondary-dark: #c35c08;
+  --color-secondary: #f38830;
+  --color-secondary-dark: #f27d1e;
 
   --color-error: #db140d;
   --color-error-text: #7f0c08;
@@ -104,6 +104,7 @@ body {
 .nav__link:visited {
   text-decoration: none;
   color: var(--color--white);
+  transition: all 0.3s;
 }
 
 .nav__link--active {
@@ -161,10 +162,10 @@ body {
   font-family: 'Manrope', sans-serif;
   font-size: 2rem;
   font-weight: 300;
-  transition: all 0.2s;
+  transition: all 0.3s;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
   padding: 8px 23px;
 }
 
@@ -172,7 +173,7 @@ body {
 .btn:link,
 .btn:visited {
   border: none;
-  color: var(--color--white);
+  color: var(--color-text-black);
   background-color: var(--color-secondary);
 }
 
@@ -256,7 +257,7 @@ a {
 }
 
 .paragraph-large {
-  font-size: 1.9rem;
+  font-size: 19px;
 }
 
 .home__p,
@@ -293,6 +294,7 @@ a {
 .content {
   flex-direction: column;
   align-items: center;
+  font-size: 17px;
 }
 
 .u-mb-6px {
@@ -382,6 +384,7 @@ a {
   .content {
     margin: auto 3rem;
     align-items: flex-start;
+    font-size: 16px;
   }
 
   .home__p,
@@ -416,7 +419,7 @@ a {
   }
 
   .paragraph-large {
-    font-size: 1.8rem;
+    font-size: 18px;
   }
 
   .phil-cred {
@@ -503,6 +506,12 @@ a {
 .form-container {
   flex-direction: column;
   align-items: center;
+}
+
+.flex__block--1,
+.flex__block--2,
+.flex__block--3 {
+  font-size: 17px;
 }
 
 .flex__block--1 {
@@ -614,6 +623,12 @@ a {
   .flex__block--2,
   .flex__block--2:last-of-type {
     margin-left: 7rem;
+  }
+
+  .flex__block--1,
+  .flex__block--2,
+  .flex__block--3 {
+    font-size: 16px;
   }
 
   .section-faq,
@@ -857,8 +872,8 @@ a {
 .contact-active-btn,
 .contact-active-btn:link,
 .contact-active-btn:visited {
-  color: var(--color--white);
-  background-color: var(--color-secondary-dark);
+  color: var(--color-text-black);
+  background-color: var(--color-secondary);
   transform: translateY(1rem);
 }
 
