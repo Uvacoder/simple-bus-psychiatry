@@ -18,9 +18,12 @@
   "homepage": "https://github.com/alex-anson/prevail-psychiatry#readme",
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.3.2",
-    "@parcel/transformer-webmanifest": "^2.3.2"
+    "@parcel/transformer-webmanifest": "^2.3.2",
+    "minify": "^8.0.4",
+    "try-to-catch": "^3.0.1"
   },
   "dependencies": {
     "parcel": "^2.3.2"
-  }
+  },
+  "type": "module"
 }
