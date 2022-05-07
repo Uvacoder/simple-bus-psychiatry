@@ -35,6 +35,11 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   overflow-x: hidden;
+
+  /* For mobile devices - landscape mode had a horrible font-size (actually auto zoom) thing going on. */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
